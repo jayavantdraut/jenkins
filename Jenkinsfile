@@ -1,16 +1,23 @@
 pipeline {
     agent any
     stages {
-        stage('Example Build') {
+        stage('clean') {
             steps {
-                 echo "jenkins pipline from code"
-                 test()
+                 echo "clean stage"
+                 mvnrun("clean")
             }
         }
+        stage('compile') {
+                    steps {
+                         echo "compile stage"
+                         mvnrun("compile")
+                    }
+                }
+
 
     }
 }
 
-def test(){
-echo "function call"
+def mvnrun(def commad){
+sh "mvn {commad}"
 }
