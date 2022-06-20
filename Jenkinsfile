@@ -19,5 +19,5 @@ pipeline {
 }
 
 def mvnrun(def commad){
-sh "mvn {commad}"
+sh "mvn ${commad}"
 }
