@@ -7,7 +7,7 @@ pipeline {
         stage('clean') {
             steps {
                 echo "clean stage branch name $env.GIT_BRANCH"
-                 mvnrun("clean" $env.add)
+                 mvnrun("clean" ,$env.add)
             }
         }
         stage('compile') {
