@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-    add :"jay"
+    add = "jay"
     }
     stages {
         stage('clean') {
