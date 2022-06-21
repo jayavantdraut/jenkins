@@ -17,7 +17,16 @@ pipeline {
                     }
                 }
 
+    }
+    post{
 
+        success{
+            echo "pipeline run success"
+        }
+
+       failure{
+       echo "pipeline failure "
+       }
     }
 }
 
