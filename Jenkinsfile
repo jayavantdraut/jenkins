@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                 echo "clean stage"
+                echo "clean stage branch name ${BRANCH_NAME}"
                  mvnrun("clean")
             }
         }
