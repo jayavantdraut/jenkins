@@ -9,7 +9,7 @@ pipeline {
         }
         stage('compile') {
                     steps {
-                         echo "compile stage"
+                         echo "compile stage global variable $env.owner"
                          mvnrun("compile")
                     }
                 }
