@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                echo "clean stage branch name $env.BRANCH_NAME"
+                echo "clean stage branch name $env.GIT_BRANCH"
                  mvnrun("clean")
             }
         }
