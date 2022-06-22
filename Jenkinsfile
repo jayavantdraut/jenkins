@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-               pom.version
                 echo "clean stage pom name $VERSION"
                  mvnrun("clean" ,add)
             }
