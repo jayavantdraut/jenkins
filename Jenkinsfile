@@ -6,7 +6,9 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                echo "clean stage branch name $env.GIT_BRANCH"
+              def pomf = readMavenPom(file: 'pom.xml')
+                def ver = pom.version
+                echo "clean stage pom name $ver"
                  mvnrun("clean" ,add)
             }
         }
