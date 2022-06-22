@@ -1,14 +1,16 @@
 pipeline {
     agent any
     environment{
+         IMAGE = readMavenPom().getArtifactId()
+    VERSION = readMavenPom().getVersion()
+    }
     add = "jay"
     }
     stages {
         stage('clean') {
             steps {
-              def pomf = readMavenPom(file: 'pom.xml')
-                def ver = pom.version
-                echo "clean stage pom name $ver"
+               pom.version
+                echo "clean stage pom name $VERSION"
                  mvnrun("clean" ,add)
             }
         }
