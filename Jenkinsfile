@@ -15,7 +15,7 @@ pipeline {
         stage('compile') {
                     steps {
                          echo "compile stage global variable $env.owner"
-                         mvnrun("compile")
+                         mvnrun("compile",add)
                     }
                 }
 
@@ -33,6 +33,8 @@ pipeline {
 }
 
 def mvnrun(def commad,def address){
+   def pom = readMavenPom()
+    echo "printing env pom version is  $pom.version"
 echo "printing env name $address"
 sh "mvn ${commad}"
 }
