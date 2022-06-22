@@ -3,8 +3,7 @@ pipeline {
     environment{
          IMAGE = readMavenPom().getArtifactId()
     VERSION = readMavenPom().getVersion()
-    }
-    add = "jay"
+     add = "jay"
     }
     stages {
         stage('clean') {
