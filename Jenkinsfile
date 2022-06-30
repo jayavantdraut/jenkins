@@ -47,11 +47,23 @@ if(branch.startsWith('PR')){
 }
    def pom = readMavenPom()
    def pomVersion =pom.version;
+   def buildVersion =pomVersion
+
    echo"pom version  ${pomVersion}"
    echo "The build number is ${env.BUILD_NUMBER}"
    def waausClassifier = "${barnchShort}b${env.BUILD_NUMBER}"
 
    echo "classfier ${waausClassifier}"
+
+    configFileProvider(
+           [configFile(fileId: '1291bec2-1b6b-4150-b98b-5947ee9ba2c2', variable: 'configFile')]) {
+
+          def pro  readProperties file :"$configFile"
+
+          echo "congi file     ${pro}"
+       }
+
+
 
 sh "mvn ${commad}"
 }
