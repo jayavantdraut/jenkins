@@ -58,7 +58,7 @@ if(branch.startsWith('PR')){
     configFileProvider(
            [configFile(fileId: '1291bec2-1b6b-4150-b98b-5947ee9ba2c2', variable: 'configFile')]) {
 
-          def pro  readProperties file :"$configFile"
+          def pro = readProperties file :"$configFile"
 
           echo "congi file     ${pro}"
        }
