@@ -36,7 +36,7 @@ def barnchShort = branch.toLowerCase();
 def index = barnchShort.replaceAll('[^a-z0-9-]','-').indexOf('-')
 def prNum=''
 def isPr ='false'
-echo "branch name  {branch}"
+echo "branch name  ${branch}"
 if(!branch.startsWith('PR')&&index !=-1){
     barnchShort =barnchShort.substring(0,index)
 
@@ -48,7 +48,8 @@ if(branch.startsWith('PR')){
    def pom = readMavenPom()
    def pomVersion =pom.version;
    echo"pom version  ${pomVersion}"
-   def waausClassifier = "${barnchShort}b${env.BULID_NUMBER}"
+   echo "The build number is ${env.BUILD_NUMBER}"
+   def waausClassifier = "${barnchShort}b${env.BUILD_NUMBER}"
 
    echo "classfier ${waausClassifier}"
 
